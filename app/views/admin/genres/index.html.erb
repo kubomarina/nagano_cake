@@ -1,0 +1,40 @@
+<h4>ジャンル一覧・追加</h4>
+
+<h6>ジャンル名</h6>
+<%= form_with model: @genre, local:true do |f| %>
+<%= f.text_field :name %>
+<%= f.submit '新規登録' %>
+<% end %>
+
+<table class="table table-hover table-inverse">
+     <tr>ジャンル
+  	  <th>ケーキ</th>
+  	  <th>
+  	    <%= link_to edit_admin_genre_path(@genre) do %>
+        <i class="btn btn-success">編集する</i>
+        <% end %>
+  	  </th>
+  
+  	 <th>プリン</th>
+  	 <th>
+  	   <%= link_to edit_admin_genre_path(@genre) do %>
+  　　　<i class="btn btn-success">編集する</i>
+　　　　<% end %>
+  	 </th>
+  	 
+  	 <th>焼き菓子</th>
+  	 <th>
+  	   <%= link_to edit_admin_genre_path(@genre) do %>
+       <i class="btn btn-success">編集する</i>
+       <% end %>
+  	 </th>
+  	 
+  	 <th>キャンディ</th>
+  	 <th>
+  	   <%= link_to edit_genre_path(@genre) do %>
+       <i class="btn btn-success">編集する</i>
+       <% end %>
+  	 </th>
+    
+    </tr>
+    </table>

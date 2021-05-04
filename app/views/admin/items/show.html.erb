@@ -1,0 +1,29 @@
+<h3>商品詳細</h3>
+<%= ttachment_immage_tag @item, :image %>
+
+<tr>
+  <th>商品名</th>
+  <th><%= @item.name %></th>
+</tr>
+<tr>
+  <th>商品説明</th>
+  <th><%= @item.introduction %></th>
+</tr>
+<tr>
+  <th>ジャンル</th>
+  <th><%= @item.genre %></th>
+</tr>
+<tr>
+  <th>税込み価格</br>(税抜価格)<th>
+  <th><%= @item.price %></th>
+</tr>
+<tr>
+  <th>販売ステータス<th>
+  <th></th>
+</tr> 
+
+<div>
+  <%= link_to edit_admin_item_path(@item) do %>
+   <i class="btn btn-success">
+  <% end %>
+</div>
