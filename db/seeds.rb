@@ -8,3 +8,6 @@
 Admin.create!(
   email: 'nagano@nagano',
   password: 'nagano',)
+
+Genre.create!(
+  name: 'ケーキ')

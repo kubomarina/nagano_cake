@@ -1,0 +1,11 @@
+<h3>商品一覧</h3>
+<div>
+  <%= attachment_image_tag @item, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'60×80' %>
+   <% [:admin,@items].each do |item| %>
+   <table>
+   <tr>
+     <td><%= item.name %></td>
+     <td><%= item.price %></td>
+   </tr>
+<% end %>
+</table>

@@ -1,3 +1,15 @@
+<% if @item.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
 <table class="table table-hover table-inverse">
 <h3>商品一覧</h3>
    <tr>
@@ -5,14 +17,18 @@
     <th>商品名</th>
     <th>税抜き価格</th>
     <th>ジャンル</th>
-    <th>ステータス</th>
    </tr>
    <% @items.each do |item| %>
    <tr>
-     <td><%= item.itemid %></td>
-     <td><%= item.name %></td>
+     <td><%= item.id %></td>
+     <td>
+       <%= link_to admin_item_path(item) do %>
+       <%= item.name %>
+       <% end %>
+     </td>
      <td><%= item.price %></td>
      <td><%= item.genre_id %></td>
-     <td>販売ステータス</td>
+
    </tr>
 <% end %>
+</table>
