@@ -1,0 +1,38 @@
+<h3>マイページ</h3>
+
+<p>登録情報</p>
+<%= link_to edit_public_customer_path(@customer) do %>
+<button class= "btn btn-success" %>編集する</button>
+<% end %>
+
+<table class="table table-hover table-inverse">
+  <tr>
+    <th>氏名<th>
+    <th><%= @customer.last_name %><%= @customer.first_name %></th>
+  </tr>
+  <tr>
+    <th>カナ<th>
+    <th><%= @customer.last_name_kana %><%= @customer.first_name_kana %></th>
+  </tr>
+  <tr>
+    <th>郵便番号<th>
+    <th><%= @customer.postal_code %></th>
+  </tr>
+  <tr>
+    <th>住所<th>
+    <th><%= @customer.address %></th>
+  </tr>
+  <tr>
+    <th>電話番号<th>
+    <th><%= @customer.telephone_number %></th>
+  </tr>
+  <tr>
+    <th>メールアドレス<th>
+    <th><%= @customer.email %></th>
+  </tr>
+  </table>
+  <%= link_to "退会する",  customers_unsubscribe_path %>
+
+  <p>配送先</p>
+
+  <p>注文履歴</p>

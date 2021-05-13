@@ -1,4 +1,4 @@
-<p><%= @customer.name %>さんの会員詳細</p>
+<p><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</p>
 
 <table class="table table-hover table-inverse">
   <tr>
@@ -25,5 +25,5 @@
     <th>メールアドレス</th>
     <th><%= @customer.email %></th>
   </tr>
- 
- <%= link_to >
+ </table>
+ <%= link_to "編集する", edit_admin_customer_path %>

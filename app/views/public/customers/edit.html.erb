@@ -1,9 +1,7 @@
-<p><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</p>
+<h3>会員情報編集</h3>
+<%= form_with model:[:public,@customer], local:true do |f| %>
 
-<%= form_with model: [:public,@customer], local:true do |f| %>
-<h6>会員ID</h6>
- <%= @customer.id %>
- <h6>氏名</h6>
+<h6>氏名</h6>
  <%= f.text_field :last_name %><%= f.text_field :first_name %>
  <h6>フリガナ</h6>
  <%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %>
@@ -16,5 +14,8 @@
  <h6>メールアドレス</h6>
  <%= f.text_field :email %>
 
-<button class= "btn btn-secondary" type="submit">変更を保存</button>
-<% end %>
+ <button class= "btn btn-secondary" type="submit">編集内容を保存</button>
+ <% end %>
+
+ <p>退会する</p>
+

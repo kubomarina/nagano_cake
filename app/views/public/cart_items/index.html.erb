@@ -5,5 +5,15 @@
     <th>単価(税込)</th>
     <th>数量</th>
     <th>小計</th>
-    <th><>
+    <th></th>
   </tr>
+  <% @items.@cart_items.each do |item| %>
+  <tr>
+    <td><%= @item.name %></td>
+    <td><%= @item.price %></td>
+    <td><%= @cart_item.amount %></td>
+    <td><%= @item.price %>
+  </tr>
+  <% end %>
+  
+  

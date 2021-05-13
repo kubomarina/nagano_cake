@@ -5,8 +5,17 @@
        このサイトは、ケーキ販売のECサイトになります。</br>
        会員でない方も商品の閲覧はできますが、</br>
        購入には会員登録が必要になります。</h4>
-
-   <h3>新着</h3>
-   </div>
+  </div>
   </div>
  </div>
+
+   <h3>新着</h3>
+   <% @items.each do |item| %>
+   <div class= "d-flex justify-content-around">
+    <%= attachment_image_tag @item, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
+    <%= item.name %>
+    <p>￥<%= item.price %></p>
+    </div>
+    <% end %>
+   </div>
+   

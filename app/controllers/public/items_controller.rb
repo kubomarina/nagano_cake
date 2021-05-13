@@ -1,10 +1,11 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = item.all
+    @items = Item.all
   end
   
   def show
     @item = Item.find(params[:id])
+    redirect_to public_cart_items_path
   end
   
   private

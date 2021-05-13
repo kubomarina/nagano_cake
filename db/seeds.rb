@@ -10,4 +10,13 @@ Admin.create!(
   password: 'nagano',)
 
 Genre.create!(
-  name: 'ケーキ')
+ name: 'ケーキ')
+
+ Genre.create!(
+ name: '焼き菓子')
+
+ Genre.create!(
+ name: 'プリン')
+
+ Genre.create!(
+ name: 'キャンディ')

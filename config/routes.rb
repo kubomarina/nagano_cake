@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   devise_for :customers, controllers: {
-    registrations: 'customers/registrations',
-    sessions: 'customers/sessions' }
+    registrations: 'public/registrations',
+    sessions:      'public/sessions' }
   root 'public/homes#top'
   get "about" => "public/homes#about"
+  get "orders/complete" => "public/orders#complete"
+  get "customers/unsubscribe" => "public/customers#unsubscribe"
+  patch "customers/withdraw" => "public/customers#withdraw"
   namespace :public do
     resources :items, only: [:index, :show]
+    resources :address, only: [:index, :edit, :create, :update, :destroy]
+    resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
   end
 
   devise_for :admin, controllers: {
@@ -15,6 +22,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
   end
 
 end

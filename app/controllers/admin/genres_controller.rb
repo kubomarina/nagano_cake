@@ -20,6 +20,8 @@ class Admin::GenresController < ApplicationController
     @genre.update(genre_params)
     redirect_to admin_genre_path
   end
+  
+  layout 'admin'
 
 private
 

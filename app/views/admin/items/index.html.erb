@@ -8,9 +8,10 @@
   </div>
 <% end %>
 
-
-
 <table class="table table-hover table-inverse">
+<%= link_to new_admin_item_path do %>
+ <button class= "fas fa-plus btn btn-outline-secondary"></button>
+<% end %>
 <h3>商品一覧</h3>
    <tr>
     <th>商品ID</th>
@@ -28,7 +29,6 @@
      </td>
      <td><%= item.price %></td>
      <td><%= item.genre_id %></td>
-
    </tr>
 <% end %>
 </table>

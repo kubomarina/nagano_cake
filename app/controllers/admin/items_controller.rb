@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.genre_id = item_params[:genre_id].to_i
     if @item.save
-    redirect_to admin_item_path
+    redirect_to admin_item_path(@item.id)
     else
       @items = Item.all
       render :index
@@ -20,15 +20,16 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
     @item = Item.new
+    
   end
 
   def show
     @item = Item.find(params[:id])
-
   end
 
   def edit
     @item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -37,6 +38,7 @@ class Admin::ItemsController < ApplicationController
     redirect_to admin_item_path
   end
 
+layout 'admin'
 private
 
   def item_params
