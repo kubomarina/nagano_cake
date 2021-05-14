@@ -2,21 +2,36 @@
  <div slass="row">
   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-   <h3>商品新規登録</h3>
-    <%= form_with model: [:admin,@item,], local:true do |f| %>
-    <h6>商品画像<h6>
-     <%= f.attachment_field :image %>
-    <h6>商品名</h6>
-     <%= f.text_field :name %>
-    <h6>商品説明</h6>
-     <%= f.text_area :introduction %>
-    <h6>ジャンル</h6>
-     <%= f.collection_select(:genre_id, @genres, :id, :name) %>
-    <h6>税抜き価格</h6>
-     <%= f.text_field :price %><a>円</a>
 
+   <h5>商品新規登録</h5>
+    <table>
 
-     <%= f.submit '新規登録' %>
+      <th><%= form_with model: [:admin,@item,], local:true do |f| %></th>
+
+    <tr>
+     <th>商品画像</th>
+     <th><%= f.attachment_field :image %></th>
+    </tr>
+    <tr>
+     <th>商品名</th>
+     <th><%= f.text_field :name, class:"w-100" %></th>
+    </tr>
+    <tr>
+     <th>商品説明</th>
+     <th><%= f.text_area :introduction, class:"w-100" %></th>
+    </tr>
+    <tr>
+     <th>ジャンル</th>
+     <th><%= f.collection_select(:genre_id, @genres, :id, :name) %></th>
+    </tr>
+    <tr>
+     <th>税抜き価格</th>
+     <th><%= f.text_field :price %>円</th>
+    </tr>
+   </table>
+　　<div>
+     <button class="btn btn-success d-block" type="submit">新規登録</button>
+    </div>
      <% end %>
     </div>
    </div>

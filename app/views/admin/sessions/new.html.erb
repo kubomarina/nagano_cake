@@ -1,23 +1,25 @@
 
 <div class="container">
- <div slass="row">
-  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-   <h2>ログイン</h2>
-
+ <div class="row">
+   <h4>管理者ログイン</h4>
+<div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-     <div class="field">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-     </div>
+    <p></p>
+     <table class="field">
+      <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+      </tr>
 
-     <div class="field">
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-     </div>
+      <tr>
+      <th><%= f.label :パスワード %></th>
+      <th><%= f.password_field :password, autocomplete: "current-password" %></th>
+      </tr>
+     </table>
 
 
      <div class="actions">
-      <%= f.submit "ログイン" %>
+      <button class="btn btn-success" type="submit">ログイン</button>
      </div>
     <% end %>
     </div>

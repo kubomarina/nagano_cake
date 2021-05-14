@@ -1,20 +1,42 @@
-<p><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</p>
-
+<h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
+<div class="container">
+ <div slass="row">
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+<table>
 <%= form_with model: [:public,@customer], local:true do |f| %>
-<h6>会員ID</h6>
- <%= @customer.id %>
- <h6>氏名</h6>
- <%= f.text_field :last_name %><%= f.text_field :first_name %>
- <h6>フリガナ</h6>
- <%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %>
- <h6>郵便番号</h6>
- <%= f.text_field :postal_code %>
- <h6>住所</h6>
- <%= f.text_field :address %>
- <h6>電話番号</h6>
- <%= f.text_field :telephone_number %>
- <h6>メールアドレス</h6>
- <%= f.text_field :email %>
+<tr>
+ <th>会員ID</th>
+ <th><%= @customer.id %></th>
+</tr>
+<tr>
+ <th>氏名</th>
+ <th><%= f.text_field :last_name %></th>
+ <th><%= f.text_field :first_name %></th>
+</tr>
+<tr>
+ <th>フリガナ</th>
+ <th><%= f.text_field :last_name_kana %></th>
+ <th><%= f.text_field :first_name_kana %></th>
+</tr>
+<tr>
+ <th>郵便番号</th>
+ <th><%= f.text_field :postal_code %></th>
+</tr>
+<tr>
+ <th>住所</th>
+ <th><%= f.text_field :address %></th>
+</tr>
+<tr>
+ <th>電話番号</th>
+ <th><%= f.text_field :telephone_number %></th>
+</tr>
+<tr>
+ <th>メールアドレス</th>
+ <th><%= f.text_field :email %></th>
+</table>
 
 <button class= "btn btn-secondary" type="submit">変更を保存</button>
 <% end %>
+</div>
+</div>
+</div>

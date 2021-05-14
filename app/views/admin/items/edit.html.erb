@@ -3,18 +3,31 @@
   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
 　<%= form_with model: [:admin,@item], local:true do |f| %>
-　<h6>商品画像</h6>
- <%= f.attachment_field :image %>
- <h6>商品名</h6>
- <%= f.text_field :name %>
- <h6>商品説明</h6>
- <%= f.text_area :introduction %>
- <h6>ジャンル</h6>
- <%= f.collection_select(:genre_id, @genres, :id, :name) %>
- <h6>税抜き価格</h6>
- <%= f.text_field :price %><a>円</a>
-<button class= "btn btn-secondary" type="submit">変更を保存</button>
+　<table>
+　 <tr>
+　  <th>商品画像</th>
+    <th><%= f.attachment_field :image %></th>
+   </tr>
+   <tr>
+    <th>商品名</th>
+    <th><%= f.text_field :name, class:"w-100" %></th>
+   </tr>
+   <tr>
+    <th>商品説明</th>
+    <th><%= f.text_area :introduction, class:"w-100" %></th>
+   </tr>
+   <tr>
+    <th>ジャンル</th>
+    <th><%= f.collection_select(:genre_id, @genres, :id, :name) %></th>
+   </tr>
+   <tr>
+    <th>税抜き価格</th>
+    <th><%= f.text_field :price %>円</th>
+   </tr>
+</table>
+<button class= "btn btn-secondary d-block" type="submit">変更を保存</button>
 <% end %>
+
   </div>
 </div>
 </div>

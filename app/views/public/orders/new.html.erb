@@ -14,7 +14,7 @@
 <%= @current_customer.last_name %><%= @current_user.first_name %>
 
 
-<p>新しいお届け先</p>
+<p>新しいお届け先</p> 
 <%= form_with model: [:public,@address], local:true do |f| %>
 <p>郵便番号(ハイフンなし)<%= f.text_field :postal_code %></p>
 
