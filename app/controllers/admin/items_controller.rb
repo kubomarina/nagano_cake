@@ -18,9 +18,7 @@ class Admin::ItemsController < ApplicationController
 
 
   def index
-    @items = Item.page(params[:page]).reverse_order
-    @item = Item.new
-    
+    @items = Item.page(params[:page]).order(id:"ASC")
   end
 
   def show

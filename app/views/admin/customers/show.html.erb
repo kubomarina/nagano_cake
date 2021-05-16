@@ -28,6 +28,10 @@
     <th>メールアドレス</th>
     <th><%= @customer.email %></th>
   </tr>
+  <tr>
+    <th>会員ステータス</th>
+    <th><%= @customer.is_active %></th>
+  </tr>
  </table>
 
  <%= link_to edit_admin_customer_path do %>

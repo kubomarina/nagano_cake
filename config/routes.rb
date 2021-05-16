@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   get "orders/complete" => "public/orders#complete"
   get "customers/unsubscribe" => "public/customers#unsubscribe"
   patch "customers/withdraw" => "public/customers#withdraw"
+  delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
+  post "orders/confirm" => "public/orders#comfirm"
   namespace :public do
+    resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
     resources :items, only: [:index, :show]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
   end
 

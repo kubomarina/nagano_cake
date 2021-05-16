@@ -1,1 +1,9 @@
-<h4>注文情報一覧</h4>
+<h4>注文情報確認</h4>
+
+<h5>支払方法</h5>
+<%= order.payment_method %>
+<br>
+<h5>お届け先</h5>
+<h5>〒<%= order_address.postal_code %><%= order_address.address %></h5><br>
+<%= order_address.name %>
+
