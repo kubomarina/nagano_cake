@@ -1,15 +1,55 @@
-<table class="table table-hover table-inverse">
-<h4>注文履歴一覧</h4>
-<tr>
-  <th>購入日時</th>
-  <th>購入者</th>
-  <th>注文個数</th>
-  <th>注文ステータス</th>
-</tr>
+<h5>注文詳細履歴</h5>
+<table>
+  <tr>
+    <th>購入者</th>
+    <th><%= current_customer.last_name %>
+        <%= current_customer.first_name %>
+    </th>
+  </tr>  
+    <th>注文日</th>
+    <th><%= @order.created_at %></th>
+  </tr>
+  <tr>
+    <th>配送先</th>
+    <th><%= @order.postal_code %><%= @order.address %><br>
+        <%= @order.name %>
+    </th>
+  </tr>
+  <tr>
+    <th>支払方法</th>
+    <th><%= @order.payment_method %></th>
+  </tr>
+</table>
 
-<tr>
-  <td><%= order.created.at %></td>
-  <td><></td>
-  <td></td>
-  <td></td>
-</tr>
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></th>
+  </tr>
+  <% @cart_items.each do |f| %>
+  <tr>
+    <td><%= cart_item.item.name %></td>
+    <td><%= cart_item.item.price %></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.total_price %></td>
+  </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>商品合計</th>
+    <th><%= cart.item.total_price %></th>
+  </tr>
+  <tr>
+    <th>送料</th>
+    <th>800</th>
+  </tr>
+  <tr>
+    <th>請求金額合計</th>
+    <th><%= cart_item.total_payment %></th>
+  </tr>
+</table>

@@ -5,17 +5,33 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    @items = customer.item
+    @order.customer_id = current_customer.id
   end
 
   def show
     @order = Order.find(params[:id])
+    
+    @total_item_price = 0
+
+    @cart_items.each do |ci|
+     @total_item_price += ci.item.price * ci.amount
+    end
+
+    @total_payment = @total_item_price*1.1 + 800
   end
 
   def comfirm
-    @order = Order.new
+    @order = Order.new(order_params)
     @cart_items = current_customer.cart_items
-    @order.payment_method = params[:order][:payment_method]
+
+    @total_item_price = 0
+
+    @cart_items.each do |ci|
+     @total_item_price += ci.item.price * ci.amount
+    end
+
+    @total_payment = @total_item_price*1.1 + 800
+    render :confirm
   end
 
   def complete
@@ -25,7 +41,8 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-    redirect_to orders_comfirm_path
+    current_customer.cart_items.destroy_all
+    redirect_to orders_complete_path
   end
 
   private

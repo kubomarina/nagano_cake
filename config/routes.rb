@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   patch "customers/withdraw" => "public/customers#withdraw"
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
   post "orders/confirm" => "public/orders#comfirm"
+  get "orders/complete" => "public/orders#complete"
   namespace :public do
     resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
     resources :items, only: [:index, :show]

@@ -9,12 +9,15 @@
   </tr>
   <% @orders.each do |order| %>
   <tr>
-    <td><%= public_order.created_at %></td>
+    <td><%= order.created_at %></td>
     <td>
-      〒<%= public_order.postal_code %></br>
-      <%= public_order.address %></br>
-      <%= public_order.name %></br>
+      〒<%= order.postal_code %></br>
+      <%= order.address %></br>
+      <%= order.cart_item.item.name %></br>
     </td>
-    <td><%= public_item.name %></td>
-    <td><%= public_order.total_payment %></td>
+    <td><%= order.name %></td>
+    <td><%= order.total_payment %></td>
   </tr>
+  <% end %>
+  </table>
+
