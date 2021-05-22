@@ -4,20 +4,21 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    @order.customer_id = current_customer.id
+    @orders = current_customer.orders
   end
 
   def show
     @order = Order.find(params[:id])
+    @orders = current_customer.orders
+    @cart_items = current_customer.cart_items
     
     @total_item_price = 0
 
-    @cart_items.each do |ci|
-     @total_item_price += ci.item.price * ci.amount
+    @cart_items.each do |cart_item|
+     @total_item_price += cart_items.item.price * cart_items.amount.to_i
     end
 
-    @total_payment = @total_item_price*1.1 + 800
+    @total_payment = @total_item_price*1.1 + 800.to_i
   end
 
   def comfirm
@@ -27,10 +28,10 @@ class Public::OrdersController < ApplicationController
     @total_item_price = 0
 
     @cart_items.each do |ci|
-     @total_item_price += ci.item.price * ci.amount
+     @total_item_price += ci.item.price * ci.amount.to_i
     end
 
-    @total_payment = @total_item_price*1.1 + 800
+    @total_payment = @total_item_price*1.1 + 800.to_i
     render :confirm
   end
 

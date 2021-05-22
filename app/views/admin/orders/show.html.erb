@@ -2,8 +2,8 @@
 <table>
   <tr>
     <th>購入者</th>
-    <th><%= current_customer.last_name %>
-        <%= current_customer.first_name %>
+    <th><%= @order.customer.last_name %>
+        <%= @order.customer.first_name %>
     </th>
   </tr>  
     <th>注文日</th>

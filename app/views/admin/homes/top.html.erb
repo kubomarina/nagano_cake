@@ -9,7 +9,7 @@
 <tr>
   <td><%= link_to order.created_at, admin_order_path(order) %></td>
   <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-　<td></td>
+　<td><%= total_amount %></td>
 </tr>
 <% end %>
 </table>

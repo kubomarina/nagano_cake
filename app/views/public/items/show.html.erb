@@ -1,19 +1,26 @@
-<div class="container">
- <div class="row">
-   <div class="mx-auto col-11 col-sm-10 col-lg-8">
-<div>
-    <%= attachment_image_tag @item, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'60×80' %>
-    <p><%= @item.name %></p>
-    <p><%= @item.introduction %></p>
-    <p><%= @item.price %>(税込)</p>
 
+<table class = "table">
+ <tr>
+  <td class = "table-img">
+   <div class = "box">
+    <div class = "box-img img-right">
+    <%= attachment_image_tag @item, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'60×80' %>
+</div>
+ </div>
+ </td>
+   <td class = "table-text">
+    <%= @item.name %></br>
+    <%= @item.introduction %></br>
+    <%= @item.price %>(税込)
+    </td>
+   </tr>
+  </table>
+  </div>
+  </div>
+</div>
     <%= form_with model:[:public,@cart_item], url: public_cart_items_path, local:true do |f| %>
     <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %>
     <%= f.submit "カートに入れる" %>
     <% end %>
 
-</div>
-</div>
-</div>
-</div>

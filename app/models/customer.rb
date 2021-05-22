@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
    退会: false
  }
 
-  
+
   def active_for_authentication?
     super && (self.is_active == "有効")
   end

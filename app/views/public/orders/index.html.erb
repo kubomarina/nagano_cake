@@ -1,3 +1,4 @@
+
 <h3>注文履歴一覧</h3>
 <table class="table table-hover table-inverse">
   <tr>
@@ -5,15 +6,17 @@
     <th>配送先</th>
     <th>注文商品</th>
     <th>支払い金額</th>
-    <th>注文詳細</th>
   </tr>
   <% @orders.each do |order| %>
   <tr>
-    <td><%= order.created_at %></td>
+    <td>
+      <%= link_to public_order_path(order) do %> 
+      <%= order.created_at %>
+      <% end %>
+    </td>
     <td>
       〒<%= order.postal_code %></br>
       <%= order.address %></br>
-      <%= order.cart_item.item.name %></br>
     </td>
     <td><%= order.name %></td>
     <td><%= order.total_payment %></td>

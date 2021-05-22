@@ -21,6 +21,7 @@
 <%= f.label :name, "宛名" %>
 <%= f.text_field :name %>
 <br>
+<%= f.hidden_field :order_id, :value => @order.id %>
 <%= f.submit '確認画面へ進む' %>
 <% end %>
 

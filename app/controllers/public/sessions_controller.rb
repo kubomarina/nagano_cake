@@ -24,7 +24,15 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  def reject_user
+
+
+   def reject_inactive_user
     @customer = Customer.find_by(name: params[:customer][:name])
-  end
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_valid
+        redirect_to new_customer_session_path
+      end
+    end
+   end
 end
+
