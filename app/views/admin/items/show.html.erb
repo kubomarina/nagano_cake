@@ -1,12 +1,12 @@
 
 <h3>商品詳細</h3>
-<div class="container, d-frex">
+<div class="container">
  <div class="row">
-<div class= "col-md-4, img-right">
+<div class= "col-lg-4 img-wrapper">
   <%= attachment_image_tag @item, :image_id, :fill, 273, 200, format: 'jpeg', fallback: "no_image.jpg", size:'273×200' %>
 </div>
-  <div class="col-md-6,col-offset-2">
-   <table class="table table-hover table-inverse">
+  <div class="col-lg-6,col-offset-2">
+   <table class="table table-hover table-inverse align-middle">
     <tr>
      <th>商品名</th>
      <td><%= @item.name %></td>
@@ -20,13 +20,13 @@
      <td><%= @item.genre.name %></td>
    </tr>
    <tr>
-    <th>税込み価格</br>(税抜価格)</th>
-    <td><%= @item.price %>円</td>
+    <th>税込価格</br>(税抜価格)</th>
+    <td><%= @item.price*1.1 %>円(<%= @item.price %>円)</td>
    </tr>
   </table>
   <div>
   <%= link_to edit_admin_item_path(@item) do %>
-   <i class="btn btn-success">編集</i>
+   <i class="btn btn-success">編集する</i>
   </div>
   </table>
    <% end %>

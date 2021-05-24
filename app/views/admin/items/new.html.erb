@@ -1,6 +1,6 @@
 <div class="container">
  <div slass="row">
-  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 px-sm-0">
 
 
    <h5>商品新規登録</h5>
@@ -12,24 +12,29 @@
      <th>商品画像</th>
      <td><%= f.attachment_field :image %></td>
     </tr>
+    <p></p>
     <tr>
      <th>商品名</th>
      <td><%= f.text_field :name, class:"w-100" %></td>
     </tr>
+     <p></p>
     <tr>
      <th>商品説明</th>
      <td><%= f.text_area :introduction, class:"w-100" %></td>
     </tr>
+     <p></p>
     <tr>
      <th>ジャンル</th>
      <td><%= f.collection_select(:genre_id, @genres, :id, :name) %></td>
     </tr>
+     <p></p>
     <tr>
      <th>税抜き価格</th>
      <td><%= f.text_field :price %>円</td>
     </tr>
+     <p></p>
    </table>
-　　<div>
+　　<div class = "btn-group mx-auto">
      <button class="btn btn-success d-block" type="submit">新規登録</button>
     </div>
      <% end %>

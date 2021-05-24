@@ -7,20 +7,21 @@ class Order < ApplicationRecord
     銀行振込: 1
 
   }
-end
 
 def shipping_cost
-  800
+ return 800
 end
 
 def total_item_price
-  cart_item.item.price * cart_item.amount.to_i
+  order_details.sum("price*amount*1.1").round
 end
 
 def total_payment
-  total_item_price*1.1 + 800.to_i
+  order_details.sum("price*amount*1.1").round+shipping_cost
 end
 
-def total_amount
-  CartItem.all.sum(:amount)
+def total_amounts
+  order_details.sum("amount").round
 end
+end
+

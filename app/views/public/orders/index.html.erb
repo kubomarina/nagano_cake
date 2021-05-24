@@ -1,26 +1,41 @@
+<div class="container">
+ <div class="row">
 
 <h3>注文履歴一覧</h3>
-<table class="table table-hover table-inverse">
+<table class="table table-borderd">
+ <thead class="thead thead-light">
   <tr>
     <th>注文日</th>
     <th>配送先</th>
     <th>注文商品</th>
     <th>支払い金額</th>
+    <th></th>
   </tr>
+ </thead>
   <% @orders.each do |order| %>
   <tr>
     <td>
-      <%= link_to public_order_path(order) do %> 
-      <%= order.created_at %>
-      <% end %>
+      <%= order.created_at.strftime('%Y/%m/%d') %>
     </td>
     <td>
       〒<%= order.postal_code %></br>
       <%= order.address %></br>
+      <%= order.name %>
     </td>
-    <td><%= order.name %></td>
+    <td>
+     <% order.order_details.each do |detail| %>
+     <%= detail.item.name %>
+     <% end %>
+    </td>
     <td><%= order.total_payment %></td>
+    <td>
+      <%= link_to public_order_path(order) do %>
+      <i class="btn btn-primary">表示する</i>
+      <% end %>
+    </td>
   </tr>
   <% end %>
   </table>
+  </div>
+  </div>
 

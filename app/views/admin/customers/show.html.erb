@@ -12,6 +12,10 @@
     <th>氏名</th>
     <td><%= @customer.last_name %><%= @customer.first_name %></td>
   </tr>
+   <tr>
+    <th>フリガナ</th>
+    <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+  </tr>
   <tr>
     <th>郵便番号</th>
     <td><%= @customer.postal_code %></td>
@@ -38,7 +42,9 @@
  <button class="btn btn-success">編集する</button>
  <% end %>
 
-
+<%= link_to admin_path(order_sort:0) do %>
+<button class="btn btn-primary">注文履歴一覧を見る</button>
+<% end %>
  </div>
  </div>
  </div>

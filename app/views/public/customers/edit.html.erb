@@ -27,10 +27,14 @@
  <td><%= f.text_field :email %></td>
  </tr>
 </table>
- <button class= "btn btn-secondary" type="submit">編集内容を保存</button>
+<div>
+ <button class= "btn btn-success" type="submit">編集内容を保存</button>
  <% end %>
 
- <p>退会する</p>
+ <%= link_to customers_unsubscribe_path do %>
+ <i class="btn btn-danger">退会する</i>
+ <% end %>
+ </div>
 </div>
 </div>
 </div>

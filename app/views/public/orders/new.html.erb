@@ -1,5 +1,7 @@
+<div class="container">
 
 <h4>注文情報入力</h4>
+<div class="row">
 <%= form_with model:[:public,@order], url: orders_confirm_path, local:true do |f| %>
 <%= f.label :payment, "支払い方法" %>
 <br>
@@ -11,17 +13,26 @@
 <br>
 
 <%= f.label :orderaddress, "お届け先" %>
-<br>
-<%= f.label :postal_code, "郵便番号" %>
-<%= f.text_field :postal_code %>
-<br>
-<%= f.label :address, "住所" %>
-<%= f.text_field :address %>
-<br>
-<%= f.label :name, "宛名" %>
-<%= f.text_field :name %>
-<br>
+<table class="table-borderless">
+ <tr>
+  <th><%= f.label :postal_code, "郵便番号" %></th>
+  <td><%= f.text_field :postal_code %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :address, "住所" %></th>
+  <td><%= f.text_field :address %></td>
+ </tr>
+ <tr>
+  <th><%= f.label :name, "宛名" %></th>
+  <td><%= f.text_field :name %></td>
+ </tr>
+</table>
 <%= f.hidden_field :order_id, :value => @order.id %>
-<%= f.submit '確認画面へ進む' %>
+<div class = "btn-group mx-auto">
+  <button class="btn btn-primary" type="submit">確認画面に進む</button>
+</div>
+
 <% end %>
 
+</div>
+</div>

@@ -1,17 +1,21 @@
+<div class="container">
+ <div class="row">
+
 <h5>注文詳細履歴</h5>
-<table>
+<div class="table">
+<table class ="table table-borderless">
   <tr>
     <th>購入者</th>
     <th><%= @order.customer.last_name %>
         <%= @order.customer.first_name %>
     </th>
-  </tr>  
+  </tr>
     <th>注文日</th>
-    <th><%= @order.created_at %></th>
+    <th><%= @order.created_at.strftime("%Y年%m月%d日") %></th>
   </tr>
   <tr>
     <th>配送先</th>
-    <th><%= @order.postal_code %><%= @order.address %><br>
+    <th>〒<%= @order.postal_code %><%= @order.address %><br>
         <%= @order.name %>
     </th>
   </tr>
@@ -20,8 +24,11 @@
     <th><%= @order.payment_method %></th>
   </tr>
 </table>
+</div>
 
-<table>
+<div class = "col-lg-8">
+<table class= "table table-borderless">
+  <thead class="thead-light">
   <tr>
     <th>商品名</th>
     <th>単価(税込)</th>
@@ -29,27 +36,31 @@
     <th>小計</th>
     <th></th>
   </tr>
-  <% @cart_items.each do |f| %>
+  </thead>
+  <% @order.order_details.each do |order_detail| %>
   <tr>
-    <td><%= cart_item.item.name %></td>
-    <td><%= cart_item.item.price %></td>
-    <td><%= cart_item.amount %></td>
-    <td><%= cart_item.total_price %></td>
+    <td><%= order_detail.item.name %></td>
+    <td><%= order_detail.item.price*1.1.round %></td>
+    <td><%= order_detail.amount %></td>
+    <td><%= order_detail.item.price*1.1 * order_detail.amount.round %></td>
   </tr>
   <% end %>
 </table>
-
-<table>
+</div>
+<div class= "col-lg-4　align-bottom">
+<table class ="table table-borderless">
   <tr>
     <th>商品合計</th>
-    <th><%= cart.item.total_price %></th>
+    <th><%= @order.total_item_price %></th>
   </tr>
   <tr>
     <th>送料</th>
-    <th>800</th>
+    <th><%= @order.shipping_cost %></th>
   </tr>
   <tr>
     <th>請求金額合計</th>
-    <th><%= cart_item.total_payment %></th>
+    <th><%= @order.total_payment %></th>
   </tr>
 </table>
+</div>
+</div>
