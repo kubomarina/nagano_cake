@@ -1,3 +1,6 @@
+<div class="container">
+ <div slass="row">
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 <h4><strong>本当に退会しますか？</strong></h4>
 <h5>
   退会すると、会員登録情報や</br>
@@ -5,5 +8,15 @@
   退会する場合は、「退会する」をクリックしてください。
 </h5>
 
-<%= link_to "退会する", customers_withdraw_path(@customer.id), method: :patch %>
-<%= link_to "退会しない", public_customer_path(current_customer) %>
+<div class="button">
+ <%= link_to customers_withdraw_path, method: :patch do %>
+ <i class ="btn btn-danger">退会する</i>
+ <% end %>
+
+ <%= link_to customer_path(current_customer) do %>
+ <i class="btn btn-primary">退会しない</i>
+ <% end %>
+</div>
+</div>
+</div>
+</div>

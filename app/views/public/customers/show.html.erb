@@ -4,7 +4,7 @@
 <h3>マイページ</h3>
 
 <p>登録情報</p>
-<%= link_to edit_public_customer_path(@customer) do %>
+<%= link_to edit_customer_path(@customer) do %>
 <button class= "btn btn-success" %>編集する</button>
 <% end %>
 
@@ -37,7 +37,7 @@
   
 
   <p>注文履歴
-  <%= link_to public_orders_path do %>
+  <%= link_to orders_path do %>
   <i class ="btn btn-primary">一覧を見る</i>
   <% end %>
   </p>

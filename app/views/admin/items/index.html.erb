@@ -1,31 +1,33 @@
 
 <div class="container">
  <div class="row">
-  <table class="table table-hover table-inverse table-sm">
-<div class= "text-right">
-<%= link_to new_admin_item_path do %>
- <button class= "fas fa-plus btn btn-outline-secondary"></button>
-<% end %>
-</div>
+  <div class="col-12">
+   <div class= "float-right">
+    <%= link_to new_admin_item_path do %>
+    <button class= "fas fa-plus btn btn-outline-secondary"></button>
+    <% end %>
+   </div>
+  </div>
 <h3>商品一覧</h3>
-   <tr>
-    <th>商品ID</th>
-    <th>商品名</th>
-    <th>税抜き価格</th>
-    <th>ジャンル</th>
-   </tr>
-   <% @items.each do |item| %>
-   <tr>
-     <td><%= item.id %></td>
-     <td>
-       <%= link_to admin_item_path(item) do %>
-       <%= item.name %>
-       <% end %>
-     </td>
-     <td><%= item.price %></td>
-     <td><%= item.genre.name %></td>
-   </tr>
-<% end %>
+<table class="table table-hover table-inverse table-sm">
+ <tr>
+  <th>商品ID</th>
+  <th>商品名</th>
+  <th>税抜き価格</th>
+  <th>ジャンル</th>
+ </tr>
+ <% @items.each do |item| %>
+ <tr>
+  <td><%= item.id %></td>
+  <td>
+   <%= link_to admin_item_path(item) do %>
+   <%= item.name %>
+   <% end %>
+  </td>
+  <td><%= item.price %></td>
+  <td><%= item.genre.name %></td>
+ </tr>
+ <% end %>
 </table>
 </div>
 </div>

@@ -1,9 +1,9 @@
 
 <h3>商品詳細</h3>
-<div class="container">
+<div class="container py-5">
  <div class="row">
 <div class= "col-lg-4 img-wrapper">
-  <%= attachment_image_tag @item, :image_id, :fill, 273, 200, format: 'jpeg', fallback: "no_image.jpg", size:'273×200' %>
+  <%= attachment_image_tag @item, :image, :fill, 273, 200, format: 'jpeg', fallback: "no_image.jpg", size:'300x200' %>
 </div>
   <div class="col-lg-6,col-offset-2">
    <table class="table table-hover table-inverse align-middle">
@@ -21,7 +21,7 @@
    </tr>
    <tr>
     <th>税込価格</br>(税抜価格)</th>
-    <td><%= @item.price*1.1 %>円(<%= @item.price %>円)</td>
+    <td><%= (@item.price*1.1).round %>円(<%= @item.price %>円)</td>
    </tr>
   </table>
   <div>

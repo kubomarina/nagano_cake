@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
   post "orders/confirm" => "public/orders#comfirm"
   get "orders/complete" => "public/orders#complete"
-  namespace :public do
+  scope module: 'public' do
     resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
     resources :items, only: [:index, :show]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'}
   get "admin" => 'admin/homes#top'
+  patch '/admin/customers/:id' => 'admin/customers#update'
   namespace :admin do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]

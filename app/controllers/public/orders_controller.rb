@@ -16,10 +16,10 @@ class Public::OrdersController < ApplicationController
     @total_item_price = 0
 
     @order.order_details.each do |order_detail|
-     @total_item_price += order_detail.item.price * order_detail.amount.to_i
+     @total_item_price += (order_detail.item.price * order_detail.amount).round
     end
 
-    @total_payment = @total_item_price*1.1 + 800.to_i
+    @total_payment = (@total_item_price*1.1 + 800).round
   end
 
   def comfirm
@@ -29,10 +29,10 @@ class Public::OrdersController < ApplicationController
     @total_item_price = 0
 
     @cart_items.each do |ci|
-     @total_item_price += ci.item.price*1.1 * ci.amount.round
+     @total_item_price += (ci.item.price*1.1 * ci.amount).round
     end
 
-    @total_payment = @total_item_price*1.1 + 800.round
+    @total_payment = (@total_item_price + 800).round
     render :confirm
   end
 

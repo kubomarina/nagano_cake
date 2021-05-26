@@ -10,23 +10,24 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    redirect_to public_customer_path(@customer.id)
+    redirect_to customer_path(@customer.id)
   end
 
   def unsubscribe
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
   end
 
   def withdraw
-    @customer = Customer.find(current_customer.id)
-  　@customer.update(is_active:"退会")
-  　reset_session
-  　redirect_to root_path
+    @customer = current_customer
+    @customer.is_active = "退会"
+    @customer.save
+    reset_session
+    redirect_to root_path
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:id, :first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :telephone_number, :address, :email)
+    params.require(:customer).permit(:id, :first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :telephone_number, :address, :email, :is_active)
   end
-end
+  end

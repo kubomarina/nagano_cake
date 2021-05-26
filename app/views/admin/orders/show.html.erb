@@ -40,27 +40,27 @@
   <% @order.order_details.each do |order_detail| %>
   <tr>
     <td><%= order_detail.item.name %></td>
-    <td><%= order_detail.item.price*1.1.round %></td>
+    <td><%= (order_detail.item.price*1.1).round %></td>
     <td><%= order_detail.amount %></td>
-    <td><%= order_detail.item.price*1.1 * order_detail.amount.round %></td>
+    <td><%= (order_detail.item.price*1.1 * order_detail.amount).round %></td>
   </tr>
   <% end %>
 </table>
 </div>
 <div class= "col-lg-4　align-bottom">
-<table class ="table table-borderless">
+ <table class ="table table-borderless">
   <tr>
-    <th>商品合計</th>
-    <th><%= @order.total_item_price %></th>
+   <th>商品合計</th>
+   <th><%= @order.total_item_price %></th>
   </tr>
   <tr>
-    <th>送料</th>
-    <th><%= @order.shipping_cost %></th>
+   <th>送料</th>
+   <th><%= @order.shipping_cost %></th>
   </tr>
   <tr>
-    <th>請求金額合計</th>
-    <th><%= @order.total_payment %></th>
+   <th>請求金額合計</th>
+   <th><%= @order.total_payment %></th>
   </tr>
-</table>
+ </table>
 </div>
 </div>

@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container mx-auto">
 
 <h4>注文情報入力</h4>
 <div class="row">
 <%= form_with model:[:public,@order], url: orders_confirm_path, local:true do |f| %>
-<%= f.label :payment, "支払い方法" %>
+<%= f.label :payment_method, "支払い方法" %>
 <br>
 <%= f.radio_button :payment_method,:クレジットカード,  checked: "checked" %>
 <%= f.label :payment_method, "クレジットカード" %>

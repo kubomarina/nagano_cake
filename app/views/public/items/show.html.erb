@@ -1,14 +1,26 @@
-<div class="container">
+<div class="container py-5">
  <div class="row">
-<div class = "col-lg-6">
-  <%= attachment_image_tag @item, :image_id, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'60×80' %>
+<div class= "col-lg-4 img-wrapper">
+  <%= attachment_image_tag @item, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg", size:'300x200' %>
 </div>
- <div class = "col-lg-6">
-    <%= @item.name %></br>
-    <%= @item.introduction %></br>
-    ￥<%= @item.price*1.1 %>(税込)<br>
-
-    <%= form_with model:[:public,@cart_item], url: public_cart_items_path, local:true do |f| %>
+ <div class="col-lg-6,col-offset-2">
+<table class="table table-hover table-inverse align-middle">
+<table>
+ <tr>
+  <th><%= @item.name %></th>
+  <th></th>
+  <th></th>
+ </tr>
+ <tr>
+  <td><%= @item.introduction %></td>
+  <td></td>
+ </tr>
+ <tr>
+  <th>￥<%= (@item.price*1.1).round %>(税込)</th>
+  <th></th>
+ </tr>
+</table>
+    <%= form_with model:[:public,@cart_item], url: cart_items_path, local:true do |f| %>
     <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択" %>
     <div class = "btn-group mx-auto">
